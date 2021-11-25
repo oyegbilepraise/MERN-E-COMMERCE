@@ -31,17 +31,20 @@ export const categories = [
     {
         id: 1,
         img: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80",
-        title: "SHIRT STYLE"
+        title: "SHIRT STYLE",
+        cat: 'women',
     },
     {
         id: 2,
         img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-        title: "LOUNGEWEAR LOVE"
+        title: "LOUNGEWEAR LOVE",
+        cat: 'coat'
     },
 {
         id: 3,
         img: "https://images.unsplash.com/photo-1584093091778-e7f4e76e8063?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80",
-        title: "LIGHT JACKETS"
+        title: "LIGHT JACKETS",
+        cat: 'jeans'
     }
 ]
 

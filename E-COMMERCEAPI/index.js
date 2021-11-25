@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const cors = require('cors')
 
 require('dotenv').config();
 
@@ -15,6 +16,10 @@ const URL = process.env.URL
 
 app.use(express.json());
 
+app.use(cors({
+    origin: '*'
+}))
+
 mongoose.connect(URL).then(() => {
     console.log('DB connected success');
 }).catch((err) => console.log(err));
@@ -25,7 +30,11 @@ app.use('/api/auth', authRoute);
 app.use('/api/products', productRoute);
 app.use('/api/orders', orderRoute);
 app.use('./api/carts', cartRoute)
-app.use('./api/checkout', stripeoute)
+app.use('./api/checkout', stripeRoute);
+
+app.get('/', (req, res) => {
+    res.json('welcome')
+})
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('Backend server is runnung');
