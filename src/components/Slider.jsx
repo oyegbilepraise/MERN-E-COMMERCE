@@ -99,26 +99,6 @@ const Slider = () => {
                         </InfoContainer>
                     </Slide>
                 ))}
-                {/* <Slide style={{ backgroundColor: "#fcf1ed" }}>
-                    <ImgContainer>
-                        <Image src={one} alt="Img..." />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>WINTER SALE</Title>
-                        <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF NEW ARRIVALS</Desc>
-                        <Button>SHOP NOW</Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide style={{ backgroundColor: "#fbf0f4" }}>
-                    <ImgContainer>
-                        <Image src={one} alt="Img..." />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>POPULAR SALE</Title>
-                        <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF NEW ARRIVALS</Desc>
-                        <Button>SHOP NOW</Button>
-                    </InfoContainer>
-                </Slide> */}
             </Wrapper>
             <Arrow style={{ right: "10px" }} onClick={() => handleClick('right')}>
                 <ArrowRightOutlined />

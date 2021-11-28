@@ -71,7 +71,7 @@ const Navbar = () => {
                         <Search style={{ color: "grey", fontSize: 16 }} />
                     </SearchContainer>
                 </Left>
-                <Center><Logo>PRAISE</Logo></Center>
+                <Center><Logo>JULIE COLLECTION</Logo></Center>
                 <Right>
                     <MenuItem></MenuItem>
                     <MenuItem></MenuItem>
