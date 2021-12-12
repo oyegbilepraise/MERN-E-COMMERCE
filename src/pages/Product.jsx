@@ -100,7 +100,7 @@ const Button = styled.button`
     background-color: white;
     cursor: pointer;
     font-weight: 500;
-
+now     
     &:hover{
         background-color: #f8f4f4;
     }
@@ -115,13 +115,16 @@ const Product = () => {
         const getProduct = async () => {
             try {
                 const res = await publicRequest.get('/products/find/' + id)
+                console.log(id)
+                console.log(res);
                 setProduct(res.data)
             } catch (error) {
                 console.log(error)
             }
-            getProduct()
         }
+        getProduct()
     }, [id])
+
     return (
         <Container>
             <Navbar />
@@ -131,24 +134,22 @@ const Product = () => {
                     <Image src={product.img} />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>Denim Jumpsuit</Title>
-                    <Desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ab eum laborum eveniet recusandae facere id dolor rerum, cupiditate accusamus repellendus corporis qui soluta at maiores incidunt commodi nemo quasi.</Desc>
-                    <Price>$ 20</Price>
+                    <Title>{product.title}</Title>
+                    <Desc>{product.desc}</Desc>
+                    <Price>$ {product.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColor style={{ backgroundColor: 'black' }} />
-                            <FilterColor style={{ backgroundColor: 'darkblue' }} />
-                            <FilterColor style={{ backgroundColor: 'gray' }} />
+                            {product.color.map((c) => (
+                                <FilterColor color={c} key={c} />
+                            ))}
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>XL</FilterSizeOption>
+                                {product.size.map((s) => (
+                                    <FilterSizeOption key={s} >{s}</FilterSizeOption>
+                                ))}
                             </FilterSize>
                         </Filter>
                     </FilterContainer>
