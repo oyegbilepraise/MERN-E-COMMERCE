@@ -110,6 +110,9 @@ const Product = () => {
     const location = useLocation();
     const id = location.pathname.split('/')[2];
     const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    
+
 
     useEffect(() => {
         const getProduct = async () => {
@@ -124,6 +127,14 @@ const Product = () => {
         }
         getProduct()
     }, [id])
+
+    const handleQuantity = (type) => {
+        if (type === 'dec') {
+            setQuantity(quantity -1)
+        } else {
+            setQuantity(quantity + 1)
+        }
+    }
 
     return (
         <Container>
@@ -140,14 +151,14 @@ const Product = () => {
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            {product.color.map((c) => (
-                                <FilterColor color={c} key={c} />
+                            {product.color?.map((c) => (
+                                <FilterColor backgroundColor={c} key={c} />
                             ))}
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                                {product.size.map((s) => (
+                                {product.size?.map((s) => (
                                     <FilterSizeOption key={s} >{s}</FilterSizeOption>
                                 ))}
                             </FilterSize>
@@ -155,9 +166,9 @@ const Product = () => {
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <Remove />
-                            <Amount>1</Amount>
-                            <Add />
+                            <Remove onClick ={ () => handleQuantity('dec')}/>
+                            <Amount>{quantity }</Amount>
+                            <Add onClick ={ () => handleQuantity('inc')}/>
                         </AmountContainer>
                         <Button>ADD TO CART</Button>
                     </AddContainer>
@@ -169,4 +180,4 @@ const Product = () => {
     )
 }
 
-export default Product
+export default Product;
