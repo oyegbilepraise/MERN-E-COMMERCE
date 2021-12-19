@@ -7,9 +7,9 @@ import Newsletter from '../components/Newsletter'
 import { mobile } from "../responsive";
 import { useLocation } from "@reach/router";
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { publicRequest } from '../requestMethods';
-
+import {useDispatch} from 'react-redux'
+import {addProduct} from '../redux/cartRedux'
 
 const Container = styled.div`
 
@@ -113,6 +113,7 @@ const Product = () => {
     const [quantity, setQuantity] = useState(1);
     const [color, setColor] = useState('')
     const [size, setSize] = useState('')
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const getProduct = async () => {
@@ -135,7 +136,9 @@ const Product = () => {
     }
 
     const handleClick = () => {
-        // update cart
+        dispatch(
+            addProduct({...product, quantity, size, color})
+        )
     }
 
     return (
