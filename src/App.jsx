@@ -7,10 +7,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Success from "./pages/Success";
 import Cart from "./pages/Carts";
+import { useSelector } from "react-redux";
 
-import { LocationProvider } from "@reach/router";
+// import { LocationProvider } from "@reach/router";
 
 const App = () => {
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <Router>
       <Routes>
